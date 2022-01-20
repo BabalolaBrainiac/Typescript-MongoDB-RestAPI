@@ -4,8 +4,7 @@
 
 ## Table of Contents
 + [About](#about)
-+ [Getting Started](#getting_started)
-+ [Usage](#usage)
++ [Prerequisites](#Prerequisites)
 + [Contributing](#contributing)
 
 ## About <a name = "about"></a>
