@@ -15,4 +15,7 @@ async function connect() {
   }
 }
 
+//ADD USER TO DB
+
+
 export default connect;
