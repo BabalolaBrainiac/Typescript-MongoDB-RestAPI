@@ -1,6 +1,4 @@
 # Typescript-MongoDB RestAPI
- 
-# A Basic and Simple Fintech API
 
 ## Table of Contents
 + [About](#about)
