@@ -8,14 +8,14 @@ async function connect() {
 
   try {
     await mongoose.connect(dburl);
-    logger.info("Database Connected");
-  } catch (err) {
+  } catch (error) {
     logger.error("Could Not Connect to Database");
     process.exit(1);
   }
+
+  logger.info("Database Connected");
 }
 
 //ADD USER TO DB
-
 
 export default connect;

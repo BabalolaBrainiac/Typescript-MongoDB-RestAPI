@@ -2,6 +2,7 @@ import { Express, Request, Response, NextFunction } from "express"; //Imports Ex
 import { Mongoose } from "mongoose";
 import connect from "./utils/connection";
 import User from "./schema/userSchema";
+import { errorHandler } from "./controllers/errors";
 import shuffleAssets from "./controllers/shuffleAssets";
 
 //Create an instance of Express as our application
@@ -31,10 +32,11 @@ function routes(app: Express) {
     "HDJ",
   ];
 
-  //Create User 
+  //Create User
   app.post(
-    "/user/create",
+    "/user/create", 
     (req: Request, res: Response, next: NextFunction) => {
+      //Hard Coding User Information instead of requesting from incoming Request Body for now
       const newUser = new User({
         userId: "010",
         name: "Rand Name10",
@@ -46,14 +48,15 @@ function routes(app: Express) {
 
       try {
         newUser.save();
-        console.log(newUser);
-        res.status(500).json({
-          Message: "User Successfully Created",
-        });
       } catch (error) {
-        console.error();
-        res.status(400).json(error);
+        res.status(400).json({
+          errorCode: 400,
+          errorMessage: "User Could Not Be Created",
+        });
       }
+      res.status(201).json({
+        Message: "User Successfully Created",
+      });
     }
   );
 }
